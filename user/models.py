@@ -10,9 +10,9 @@ class User(models.Model):
         ('ADMIN', 'Admin')
     ]
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid5)
+    id = models.UUIDField(primary_key=True)
     name = models.CharField(max_length=20)
-    token = models.UUIDField(default=uuid.uuid5, editable=False, unique=True)
+    token = models.UUIDField(editable=False, unique=True)
     role = models.CharField(choices=USER_ROLES)
     taken_activities = models.ManyToManyField('Activity')
 
